@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://cowalqps3qjwh"]
+
+[ext_resource type="Script" path="res://scripts/Camera.cs" id="2_7lspg"]
+[ext_resource type="Script" path="res://scripts/Fps.gd" id="2_yhnrv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qmxhx"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="MultiMesh" id="MultiMesh_8rlb6"]
+transform_format = 1
+mesh = SubResource("BoxMesh_qmxhx")
+
+[sub_resource type="Gradient" id="Gradient_qlt2r"]
+colors = PackedColorArray(1, 0.916667, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ojuf"]
+gradient = SubResource("Gradient_qlt2r")
+
+[sub_resource type="Curve" id="Curve_7l63u"]
+_data = [Vector2(0, 0.505294), 0.0, 0.0, 0, 0, Vector2(0.0563887, 1), 0.0, 0.0, 0, 0, Vector2(0.923315, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_dojl6"]
+curve = SubResource("Curve_7l63u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3t24"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(1, 1, 1)
+spread = 42.26
+flatness = 0.14
+gravity = Vector3(2.08165e-12, -2, 2.08165e-12)
+linear_accel_min = 0.1
+linear_accel_max = 1.0
+radial_accel_min = 2.08167e-15
+radial_accel_max = 2.08167e-15
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_dojl6")
+color_ramp = SubResource("GradientTexture1D_5ojuf")
+turbulence_enabled = true
+turbulence_noise_strength = 15.64
+turbulence_noise_scale = 2.0
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lm2v"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_31y74"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_3lm2v")
+radial_segments = 8
+rings = 8
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, -0.00046365, 0.000176841, 0.000463734, 1, -0.000439983, -0.00017662, 0.000440072, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="FpsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_yhnrv")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.664665, -0.213002, 0.716134, 0, 0.958499, 0.285089, -0.74714, -0.189489, 0.637082, 8.57595, 3.208, 5.78936)
+fov = 65.3155
+script = ExtResource("2_7lspg")
+
+[node name="MultiMeshFlock" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, -3.1601e-11, 1.45519e-11, -1.70209e-11, 1, 2.91038e-11, -1.54626e-12, 1.1494e-11, 1, 0, 0, 0)
+visible = false
+multimesh = SubResource("MultiMesh_8rlb6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.308542, 0.920216, 0.24084, -0.309622, -0.142245, 0.94016, 0.899409, -0.364648, 0.24103, 8.81795, 3.34445, 8.56144e-05)
+shadow_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, -2.06209e-10, 1.01863e-10, -1.91644e-10, 1, 2.03727e-10, -1.54626e-12, 1.1494e-11, 1, 0.000468283, 1.00982, -0.000444313)
+amount = 10000
+lifetime = 5.0
+randomness = 1.0
+fixed_fps = 90
+visibility_aabb = AABB(-4, -4, -4, 16, 16, 16)
+process_material = SubResource("ParticleProcessMaterial_r3t24")
+draw_pass_1 = SubResource("SphereMesh_31y74")

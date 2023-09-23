@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6362qsq14u4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjg2r"]
+metallic_specular = 0.09
+
+[node name="CSGBox3D" type="CSGBox3D"]
+transform = Transform3D(0.458734, 0.0174101, 0.888404, -0.864691, -0.2215, 0.450831, 0.20463, -0.975006, -0.0865551, -1.44097, 0.355186, -0.810791)
+material = SubResource("StandardMaterial3D_fjg2r")

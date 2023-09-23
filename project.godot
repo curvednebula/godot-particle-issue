@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="godot-test"
+run/main_scene="res://node_3d.tscn"
+config/features=PackedStringArray("4.1", "C#", "Mobile")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="godot-test"
+
+[editor]
+
+movie_writer/mix_rate=44000
+movie_writer/movie_file="/Users/illya/Movies/godot-movie.avi"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.00392157, 0.0313726, 0.0509804, 1)
+anti_aliasing/quality/msaa_3d=2
