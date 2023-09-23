@@ -1,4 +1,4 @@
-# godot-particle-issue
+# Godot GPU particles issue
 
 This projects demonstrates GPU particles rendering issue.
 
