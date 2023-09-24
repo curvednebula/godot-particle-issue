@@ -1,6 +1,7 @@
 # Godot GPU particles issue
 
-This projects demonstrates GPU particles rendering issue: [](https://github.com/godotengine/godot/issues/82185)
+This project demonstrates GPU particles rendering issue: [https://github.com/godotengine/godot/issues/82185)(https://github.com/godotengine/godot/issues/82185)
+
 
 IMPORTANT:
 - Issue happens only if exported to a binary (Macbook M1 Pro). No issue when running from editor.
