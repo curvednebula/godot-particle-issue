@@ -1,6 +1,6 @@
 # Godot GPU particles issue
 
-This project demonstrates GPU particles rendering issue: [https://github.com/godotengine/godot/issues/82185)(https://github.com/godotengine/godot/issues/82185)
+This project demonstrates GPU particles rendering issue: [https://github.com/godotengine/godot/issues/82185](https://github.com/godotengine/godot/issues/82185)
 
 
 IMPORTANT:
